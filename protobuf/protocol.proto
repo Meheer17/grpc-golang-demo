@@ -1,0 +1,22 @@
+syntax = "proto3";
+option go_package = "github.com/Meheer17/grpc-golang-demo/protobuf/protocol";
+
+message UserData {
+    string id = 1;
+    string name = 2;
+    string email = 3;
+}
+
+message CreateRequest {
+    UserData user = 1;
+    string from = 2;
+    string to = 3;
+}
+
+message CreateResponse {
+    string id = 1;
+}
+
+service Protocol {
+    rpc Create(CreateRequest) returns (CreateResponse);
+}
